@@ -4,11 +4,10 @@
   margin: 0;
   padding: 0;
 }
-body {
-  font-family: sans-serif;
-  background-color: #cde3e8;
-  color: #111;
+html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
 }
@@ -67,6 +66,7 @@ body {
   padding: 40px 20px;
   display: flex;
   justify-content: center;
+  flex: 1;
 }
 
 .content {
@@ -125,12 +125,11 @@ body {
 
 footer {
   background-color: #3aaa35;
-  color: white;
-  display: flex;
-  justify-content: space-between;
+  color: rgb(0, 0, 0);
   padding: 15px 30px;
-  font-size: 14px;
+  text-align: center
 }
+
 footer a {
   color: #000;
   text-decoration: none;
