@@ -1,0 +1,182 @@
+
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  background-color: #cde3e8;
+  color: #111;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  background-color: #3aaa35;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: white;
+}
+
+.search-bar {
+  flex: 1;
+  margin: 0 20px;
+  position: relative;
+}
+.search-bar input {
+  width: 100%;
+  padding: 10px 40px 10px 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+.search-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.burger {
+  border : none;
+  font-size: 24px;
+  border-radius: 8px;
+  stroke-width: none;
+  background-color: #3aaa35;
+  padding: 1rem, 1.5rem;
+
+  
+}
+
+.main-section {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  align-items: center;
+}
+
+.text-box {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex: 1;
+}
+.text-box h2 {
+  margin-bottom: 20px;
+}
+.text-box p {
+  margin-bottom: 10px;
+}
+.text-box button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #222;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.image-box {
+  position: relative;
+  flex: 1;
+}
+.image-box img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 5px;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+  color: black;
+  cursor: pointer;
+}
+.arrow.left {
+  left: -30px;
+}
+.arrow.right {
+  right: -30px;
+}
+
+footer {
+  background-color: #3aaa35;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  font-size: 14px;
+}
+footer a {
+  color: #000;
+  text-decoration: none;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background-color: #cde3e8;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  padding: 30px 20px;
+}
+
+.side-menu.active {
+  right: 0;
+}
+
+.side-menu .close-btn {
+  font-size: 24px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu li {
+  margin: 20px 0;
+}
+
+.side-menu a {
+  text-decoration: none;
+  color: #111;
+  font-size: 18px;
+}
+
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
