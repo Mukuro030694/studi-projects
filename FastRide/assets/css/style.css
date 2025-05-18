@@ -106,7 +106,7 @@ html, body {
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 4px;*
+  border-radius: 4px;
 }
 
 .text-box button:hover {
@@ -121,7 +121,8 @@ html, body {
 .image-box img {
   width: 100%;
   max-width: 500px;
-  border-radius: 5px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 .arrow {
   position: absolute;
@@ -130,6 +131,10 @@ html, body {
   font-size: 32px;
   color: black;
   cursor: pointer;
+}
+
+.arrow:hover {
+  text-shadow: #006012 0px 0px 5px;
 }
 .arrow.left {
   left: -30px;
@@ -190,6 +195,10 @@ footer a {
   cursor: pointer;
   display: block;
   margin-bottom: 20px;
+}
+
+.side-menu .close-btn:hover {
+  text-shadow: #006012 0px 0px 5px;
 }
 
 .side-menu ul {
