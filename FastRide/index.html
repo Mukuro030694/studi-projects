@@ -36,12 +36,16 @@
           <p>
             Avec EcoRide, chaque trajet devient un geste pour la planète et une opportunité de rencontre.
           </p>
-          <button>En savoir plus</button>
+          <div class="image-box">
+          <span class="arrow left" onclick="prevImage()">←</span>
+          <div class="carousel-images">
+            <img src="../FastRide/assets/img/cars/pexels-photo-86993.webp" alt="Voiture EcoRide" class="carousel-img active" />
+            <img src="../FastRide/assets/img/cars/pexels-hyundaimotorgroup-11854981.jpg" alt="EcoRide Logo" class="carousel-img" />
+            <img src="../FastRide/assets/img/cars/pexels-mikebirdy-110844.jpg" alt="Covoiturage EcoRide" class="carousel-img" />
+          </div>
+          <span class="arrow right" onclick="nextImage()">→</span>
         </div>
-        <div class="image-box">
-          <span class="arrow left">←</span>
-          <img src="../FastRide/assets/img/pexels-photo-86993.webp" alt="Voiture EcoRide" />
-          <span class="arrow right">→</span>
+          <button>En savoir plus</button>
         </div>
       </section>
     </main>
@@ -62,6 +66,7 @@
   </div>
 
   <script src="../FastRide/assets/js/main.js"></script>
+  <script src="../FastRide/assets/js/carousel.js"></script>
 
 </body>
 

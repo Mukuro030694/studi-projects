@@ -25,7 +25,7 @@ html, body {
   width: 130px;
   height: 100%;
   background: white;
-  border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +83,7 @@ html, body {
   display: flex;
   gap: 40px;
   max-width: 1200px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .text-box {
@@ -91,7 +91,18 @@ html, body {
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+.text-box-content {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .text-box h2 {
   margin-bottom: 20px;
@@ -100,7 +111,8 @@ html, body {
   margin-bottom: 10px;
 }
 .text-box button {
-  margin-top: 20px;
+  align-self: flex-start;
+  margin-top: auto;
   padding: 10px 20px;
   background-color: #222;
   color: white;
@@ -116,13 +128,21 @@ html, body {
 
 .image-box {
   position: relative;
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  border-radius: 8px;
+  padding: 20px;
 }
 .image-box img {
   width: 100%;
-  max-width: 500px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  height: 100%;
+  object-fit: cover;
+  max-width: none;
+
 }
 .arrow {
   position: absolute;
@@ -220,4 +240,27 @@ footer a {
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+/* Carrousel styles */
+.carousel-images {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+}
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
+  border-radius: 5px;
+}
+.carousel-img.active {
+  opacity: 1;
+  z-index: 1;
 }
