@@ -36,7 +36,7 @@ html, body {
   margin: 0 20px;
   position: relative;
 }
-.search-bar input, .email, .password, .new-email, .new-password, .new-password-confirmation, .new-name {
+.search-bar input, .email, .password, .new-email, .new-password, .new-password-confirmation, .new-name, .subject, .message {
   width: 100%;
   padding: 10px 40px 10px 10px;
   font-size: 16px;
