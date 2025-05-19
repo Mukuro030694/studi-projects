@@ -36,7 +36,7 @@ html, body {
   margin: 0 20px;
   position: relative;
 }
-.search-bar input {
+.search-bar input, .email-input, .password-input, .new-email-input, .new-password-input, .new-password-input-confirmation, .new-name-input {
   width: 100%;
   padding: 10px 40px 10px 10px;
   font-size: 16px;
@@ -105,10 +105,14 @@ html, body {
   justify-content: center;
 }
 .text-box h2 {
+  font-family: 'Montserrat', sans-serif;  
   margin-bottom: 20px;
+  text-align: center;
 }
 .text-box p {
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 10px;
+  
 }
 .text-box button {
   align-self: flex-start;
@@ -242,7 +246,6 @@ footer a {
   flex-direction: column;
 }
 
-/* Carrousel styles */
 .carousel-images {
   width: 100%;
   height: 100%;
@@ -263,4 +266,10 @@ footer a {
 .carousel-img.active {
   opacity: 1;
   z-index: 1;
+}
+
+.login-and-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
