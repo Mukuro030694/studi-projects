@@ -34,6 +34,11 @@
             <h2>Connectez-vous pour trouver votre covoiturage</h2>
             <input class="email" type="text" placeholder="Email" required/>
             <input class="password" type="password" placeholder="Mot de passe" required/>
+            <select id="userType">
+              <option value="user">Utilisateur</option>
+              <option value="employee">Employée</option>
+              <option value="admin">Administrateur</option>
+              </select>
             <button>Connexion</button>
           </form>
           <form class="reg-form">
@@ -56,9 +61,9 @@
     <div class="side-menu" id="sideMenu">
       <span class="close-btn" onclick="toggleMenu()">←</span>
       <ul>
-        <li><a href="#">Accès aux covoiturages</a></li>
-        <li><a href="#">Connexion</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="../FastRide/covoiturages.html">Accès aux covoiturages</a></li>
+        <li><a href="../FastRide/login.html">Connexion</a></li>
+        <li><a href="../FastRide/contact.html">Contact</a></li>
       </ul>
     </div>
   </div>
