@@ -2,3 +2,26 @@ function toggleMenu() {
   const menu = document.getElementById("sideMenu");
   menu.classList.toggle("active");
 }
+
+document.getElementById('login-form').addEventListener('connexion', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+  
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  const response = fetch('server', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email, password })
+  })
+
+  const result = response.json();
+  if(response.ok) {
+    localStorage.setItem('token', result.token);
+    window.location.href = 'login.html';
+  } else {
+    alert('Invalid email or password');
+  }
+});

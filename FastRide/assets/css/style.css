@@ -36,7 +36,7 @@ html, body {
   margin: 0 20px;
   position: relative;
 }
-.search-bar input, .email-input, .password-input, .new-email-input, .new-password-input, .new-password-input-confirmation, .new-name-input {
+.search-bar input, .email, .password, .new-email, .new-password, .new-password-confirmation, .new-name {
   width: 100%;
   padding: 10px 40px 10px 10px;
   font-size: 16px;
@@ -268,7 +268,7 @@ footer a {
   z-index: 1;
 }
 
-.login-and-register-form {
+.login-form, .reg-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
