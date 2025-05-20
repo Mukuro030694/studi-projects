@@ -4,7 +4,7 @@ function toggleMenu() {
 }
 
 document.getElementById('login-form').addEventListener('connexion', function(event) {
-  event.preventDefault(); // Prevent the default form submission
+  event.preventDefault();
   
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
@@ -28,7 +28,7 @@ document.getElementById('login-form').addEventListener('connexion', function(eve
 });
 
 document.getElementById('register-form').addEventListener('inscription', function(event) {
-  event.preventDefault(); // Prevent the default form submission
+  event.preventDefault();
 
   const email = document.getElementById('new-email').value;
   const password = document.getElementById('new-password').value;
