@@ -30,33 +30,33 @@
     <main class="main-section">
       <section class="content">
         <div class="text-box">
-          <h2>EcoRide Le covoiturage éco-responsable, simple et solidaire</h2>
-          <p>
-            EcoRide est une plateforme de covoiturage pensée pour faciliter vos déplacements quotidiens tout en
-            respectant la planète. Que vous soyez conducteur ou passager, trouvez facilement un trajet adapté à vos
-            besoins, réduisez vos frais de transport et votre impact environnemental.
-          </p>
-          <p>
-            Avec EcoRide, chaque trajet devient un geste pour la planète et une opportunité de rencontre.
-          </p>
-          <div class="image-box">
-          <span class="arrow left" onclick="prevImage()">←</span>
-          <div class="carousel-images">
-            <img src="../FastRide/assets/img/cars/pexels-photo-86993.webp" alt="Voiture EcoRide" class="carousel-img active" />
-            <img src="../FastRide/assets/img/cars/pexels-hyundaimotorgroup-11854981.jpg" alt="EcoRide Logo" class="carousel-img" />
-            <img src="../FastRide/assets/img/cars/pexels-mikebirdy-110844.jpg" alt="Covoiturage EcoRide" class="carousel-img" />
-          </div>
-          <span class="arrow right" onclick="nextImage()">→</span>
-        </div>
-          <button>En savoir plus</button>
-        </div>
+          <form class="login-form">
+            <h2>Connectez-vous pour trouver votre covoiturage</h2>
+            <input class="email" type="text" placeholder="Email" required/>
+            <input class="password" type="password" placeholder="Mot de passe" required/>
+            <select id="userType">
+              <option value="user">Utilisateur</option>
+              <option value="employee">Employée</option>
+              <option value="admin">Administrateur</option>
+              </select>
+            <button>Connexion</button>
+          </form>
+          <form class="reg-form">
+            <h2>Pas encore inscrit?</h2>
+            <input class="new-email" type="text" placeholder="Email" required/>
+            <input class="new-password" type="password" placeholder="Mot de passe" required/>
+            <input class="new-password-confirmation" type="password" placeholder="Confirmer le mot de passe" required/>
+            <input class="new-name" type="text" placeholder="Nom/Pseudo" required/>
+            <button>Inscription</button>
+            <p>En vous inscrivant, vous acceptez nos <a href="#">conditions d'utilisation</a> et notre <a href="#">politique de confidentialité</a>.</p>
+          </form>
       </section>
     </main>
 
     <footer>
       <a href="#">Mentions légales</a>
       <span>2025 EcoRide. Tous droits réservés</span>
-      <a href="../FastRide/contact.html">Contactez nous</a>
+      <a href="#">Contactez nous</a>
     </footer>
     <div class="side-menu" id="sideMenu">
       <span class="close-btn" onclick="toggleMenu()">←</span>

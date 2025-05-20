@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoRide Covoiturage</title>
+  <link rel="stylesheet" href="../FastRide/assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <header class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="../FastRide/assets/img/LOGO.png" alt="EcoRide logo" class="logo" />
+      </a>
+      <div class="search-bar">
+        <input type="text" placeholder="trouvez votre covoiturage" />
+        <span class="search-icon">🔍</span>
+      </div>
+      <div class="menu" onclick="toggleMenu()">
+        <button class="burger">☰ menu</button>
+      </div>
+    </header>
+
+    <main class="main-section">
+      <section class="search-form">
+        <h2>Recherchez un covoiturage</h2>
+        <form id="ride-search">
+          <input type="text" id="start-city" placeholder="Ville de départ" required />
+          <input type="text" id="end-city" placeholder="Ville d'arrivée" required />
+          <input type="date" id="ride-date" required />
+          <button type="submit">Rechercher</button>
+        </form>
+      </section>
+
+      <section id="results" class="ride-results">
+        <!-- Résultats dynamiques ici -->
+      </section>
+    </main>
+
+    <footer>
+      <a href="#">Mentions légales</a>
+      <span>2025 EcoRide. Tous droits réservés</span>
+      <a href="#">Contactez nous</a>
+    </footer>
+
+    <div class="side-menu" id="sideMenu">
+      <span class="close-btn" onclick="toggleMenu()">←</span>
+      <ul>
+        <li><a href="../FastRide/covoiturages.html">Accès aux covoiturages</a></li>
+        <li><a href="../FastRide/login.html">Connexion</a></li>
+        <li><a href="../FastRide/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="../FastRide/assets/js/main.js"></script>
+  <script>
+    const form = document.getElementById('ride-search');
+    const resultsSection = document.getElementById('results');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const start = document.getElementById('start-city').value.trim();
+      const end = document.getElementById('end-city').value.trim();
+      const date = document.getElementById('ride-date').value;
+
+      // Simuler des résultats (à remplacer par un appel au serveur plus tard)
+      const mockRides = [
+        {
+          driver: 'JeanD',
+          photo: '../FastRide/assets/img/drivers/portrait_0_0.png',
+          rating: 4.8,
+          seats: 2,
+          price: '12€',
+          departure: '08:00',
+          arrival: '09:30',
+          date: date,
+          eco: true
+        },
+        {
+          driver: 'MarieT',
+          photo: '../FastRide/assets/img/drivers/portrait_0_1.png',
+          rating: 4.5,
+          seats: 0,
+          price: '10€',
+          departure: '10:00',
+          arrival: '11:20',
+          date: date,
+          eco: false
+        }
+      ];
+
+      resultsSection.innerHTML = '';
+
+      const available = mockRides.filter(ride => ride.seats > 0);
+
+      if (available.length > 0) {
+        available.forEach(ride => {
+          const rideCard = document.createElement('div');
+          rideCard.className = 'ride-card';
+          rideCard.innerHTML = `
+            <img src="${ride.photo}" alt="${ride.driver}" class="driver-photo" />
+            <h3>${ride.driver} (${ride.rating}★)</h3>
+            <p>Places restantes : ${ride.seats}</p>
+            <p>Prix : ${ride.price}</p>
+            <p>Départ : ${ride.date} à ${ride.departure}</p>
+            <p>Arrivée : ${ride.arrival}</p>
+            <p>${ride.eco ? '🚗 Voyage écologique' : ''}</p>
+            <button>Voir le détail</button>
+          `;
+          resultsSection.appendChild(rideCard);
+        });
+      } else {
+        resultsSection.innerHTML = `<p>Aucun itinéraire trouvé. Essayez une autre date.</p>`;
+      }
+    });
+  </script>
+</body>
+
+</html>
