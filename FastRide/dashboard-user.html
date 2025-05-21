@@ -32,17 +32,48 @@
     <main class="main-section">
       <section class="content">
         <div class="text-box">
-          <form class="login-form">
-            <h2>Vous êtes Utilisateur</h2>
-            <p>
-              Vous avez des questions, des suggestions ou des commentaires? N'hésitez pas à nous contacter, nous sommes
-              là pour vous aider!
-            </p>
-            <input class="subject" type="text" placeholder="Sujet" required />
-            <input class="message" type="text" placeholder="Message" required />
-            <button>Envoyer</button>
-            <p>Ou contactez-nous par mail à <a href="mailto:contact@ecoride.com">contact@ecoride.com</a></p>
-          </form>
+          <h2>Bienvenue sur votre espace utilisateur</h2>
+          <h3>Votre rôle</h3>
+          <select id="user-role">
+            <option value="">-- Choisissez votre rôle --</option>
+            <option value="passager">Passager</option>
+            <option value="chauffeur">Chauffeur</option>
+            <option value="both">Les deux</option>
+          </select>
+
+          <div id="chauffeur-info" style="display: none;">
+            <h3>Informations sur le véhicule</h3>
+            <input type="text" placeholder="Plaque d'immatriculation" id="plaque" required />
+            <input type="date" id="date-immat" required />
+            <input type="text" placeholder="Modèle" id="modele" required />
+            <input type="text" placeholder="Couleur" id="couleur" required />
+            <input type="text" placeholder="Marque" id="marque" required />
+            <input type="number" placeholder="Nombre de places disponibles" id="places" required />
+
+            <h3>Préférences</h3>
+            <label><input type="checkbox" id="fumeur" /> Fumeur accepté</label>
+            <label><input type="checkbox" id="animaux" /> Animaux acceptés</label>
+            <input type="text" placeholder="Autres préférences" id="autres-preferences" />
+          </div>
+
+          <div id="saisie-voyage" style="display: none;">
+            <h3>Saisir un voyage</h3>
+            <input type="text" placeholder="Adresse de départ" id="depart" required />
+            <input type="text" placeholder="Adresse d'arrivée" id="arrivee" required />
+            <input type="number" placeholder="Prix (crédits)" id="prix" required />
+
+            <h4>Sélectionnez un véhicule</h4>
+            <select id="vehicule-existant">
+              <option value="">-- Choisissez un véhicule --</option>
+              <option value="vehicule1">Renault Zoe</option>
+              <option value="vehicule2">Peugeot 208</option>
+              <option value="vehicule3">Tesla Model 3</option>
+            </select>
+            <button id="ajouter-vehicule">Ajouter un nouveau véhicule</button>
+          </div>
+
+          <button id="save-role">Enregistrer</button>
+
       </section>
     </main>
     <footer>
