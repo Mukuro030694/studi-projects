@@ -7,8 +7,10 @@
   <title>EcoRide Covoiturage</title>
   <link rel="stylesheet" href="../FastRide/assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -19,7 +21,7 @@
         <img src="../FastRide/assets/img/LOGO.png" alt="EcoRide logo" class="logo" />
       </a>
       <div class="search-bar">
-        <input type="text" placeholder="trouvez votre covoiturage" />
+        <a href="../FastRide/covoiturages.html"><input type="text" placeholder="trouvez votre covoiturage" /></a>
         <span class="search-icon">🔍</span>
       </div>
       <div class="menu" onclick="toggleMenu()">
@@ -40,15 +42,18 @@
             Avec EcoRide, chaque trajet devient un geste pour la planète et une opportunité de rencontre.
           </p>
           <div class="image-box">
-          <span class="arrow left" onclick="prevImage()">←</span>
-          <div class="carousel-images">
-            <img src="../FastRide/assets/img/cars/pexels-photo-86993.webp" alt="Voiture EcoRide" class="carousel-img active" />
-            <img src="../FastRide/assets/img/cars/pexels-hyundaimotorgroup-11854981.jpg" alt="EcoRide Logo" class="carousel-img" />
-            <img src="../FastRide/assets/img/cars/pexels-mikebirdy-110844.jpg" alt="Covoiturage EcoRide" class="carousel-img" />
+            <span class="arrow left" onclick="prevImage()">←</span>
+            <div class="carousel-images">
+              <img src="../FastRide/assets/img/cars/pexels-photo-86993.webp" alt="Voiture EcoRide"
+                class="carousel-img active" />
+              <img src="../FastRide/assets/img/cars/pexels-hyundaimotorgroup-11854981.jpg" alt="EcoRide Logo"
+                class="carousel-img" />
+              <img src="../FastRide/assets/img/cars/pexels-mikebirdy-110844.jpg" alt="Covoiturage EcoRide"
+                class="carousel-img" />
+            </div>
+            <span class="arrow right" onclick="nextImage()">→</span>
           </div>
-          <span class="arrow right" onclick="nextImage()">→</span>
-        </div>
-          <button>En savoir plus</button>
+          <a href="../FastRide/about.html"><button>En savoir plus</button></a>
         </div>
       </section>
     </main>

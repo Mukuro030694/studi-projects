@@ -109,7 +109,7 @@ html, body {
   margin-bottom: 20px;
   text-align: center;
 }
-.text-box p {
+.text-box p, ul {
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 10px;
   

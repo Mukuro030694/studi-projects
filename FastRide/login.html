@@ -7,8 +7,10 @@
   <title>EcoRide Covoiturage</title>
   <link rel="stylesheet" href="../FastRide/assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -19,7 +21,7 @@
         <img src="../FastRide/assets/img/LOGO.png" alt="EcoRide logo" class="logo" />
       </a>
       <div class="search-bar">
-        <input type="text" placeholder="trouvez votre covoiturage" />
+        <a href="../FastRide/covoiturages.html"><input type="text" placeholder="trouvez votre covoiturage" /></a>
         <span class="search-icon">🔍</span>
       </div>
       <div class="menu" onclick="toggleMenu()">
@@ -30,25 +32,32 @@
     <main class="main-section">
       <section class="content">
         <div class="text-box">
-          <form class="login-form">
+          <form id="login-form" class="login-form">
             <h2>Connectez-vous pour trouver votre covoiturage</h2>
-            <input class="email" type="text" placeholder="Email" required/>
-            <input class="password" type="password" placeholder="Mot de passe" required/>
+            <input id="email" class="email" type="text" placeholder="Email" required />
+            <input id="password" class="password" type="password" placeholder="Mot de passe" required />
             <select id="userType">
               <option value="user">Utilisateur</option>
               <option value="employee">Employée</option>
               <option value="admin">Administrateur</option>
-              </select>
-            <button>Connexion</button>
+            </select>
+            <button class="login">Connexion</button>
           </form>
-          <form class="reg-form">
+          <form id="reg-form" class="reg-form">
             <h2>Pas encore inscrit?</h2>
-            <input class="new-email" type="text" placeholder="Email" required/>
-            <input class="new-password" type="password" placeholder="Mot de passe" required/>
-            <input class="new-password-confirmation" type="password" placeholder="Confirmer le mot de passe" required/>
-            <input class="new-name" type="text" placeholder="Nom/Pseudo" required/>
-            <button>Inscription</button>
-            <p>En vous inscrivant, vous acceptez nos <a href="#">conditions d'utilisation</a> et notre <a href="#">politique de confidentialité</a>.</p>
+            <input id="new-email" class="new-email" type="text" placeholder="Email" required />
+            <input id="new-password" class="new-password" type="password" placeholder="Mot de passe" required />
+            <input id="new-password-confirmation" class="new-password-confirmation" type="password"
+              placeholder="Confirmer le mot de passe" required />
+            <input id="new-name" class="new-name" type="text" placeholder="Nom/Pseudo" required />
+            <select id="new-userType">
+              <option value="user">Utilisateur</option>
+              <option value="employee">Employée</option>
+              <option value="admin">Administrateur</option>
+            </select>
+            <button class="register">Inscription</button>
+            <p>En vous inscrivant, vous acceptez nos <a href="#">conditions d'utilisation</a> et notre <a
+                href="#">politique de confidentialité</a>.</p>
           </form>
       </section>
     </main>
@@ -69,7 +78,6 @@
   </div>
 
   <script src="../FastRide/assets/js/main.js"></script>
-  <script src="../FastRide/assets/js/carousel.js"></script>
 
 </body>
 

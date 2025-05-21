@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoRide Covoiturage</title>
+  <link rel="stylesheet" href="../FastRide/assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <header class="navbar">
+      <a href="index.html" class="logo-link">
+        <img src="../FastRide/assets/img/LOGO.png" alt="EcoRide logo" class="logo" />
+      </a>
+      <div class="search-bar">
+        <a href="../FastRide/covoiturages.html"><input type="text" placeholder="trouvez votre covoiturage" /></a>
+        <span class="search-icon">🔍</span>
+      </div>
+      <div class="menu" onclick="toggleMenu()">
+        <button class="burger">☰ menu</button>
+      </div>
+    </header>
+
+    <main class="main-section">
+      <section class="content">
+        <div class="text-box">
+          <h2>Qui sommes nous?</h2>
+          <p>
+            EcoRide est une jeune entreprise innovante spécialisée dans le covoiturage écologique et solidaire. Fondée
+            en 2024, elle a pour mission de réduire l'empreinte carbone des déplacements quotidiens tout en favorisant
+            une mobilité partagée, accessible à tous.
+            Grâce à une plateforme simple et intuitive, EcoRide met en relation des conducteurs responsables et des
+            passagers souhaitant voyager de manière économique, pratique et respectueuse de l'environnement.
+            L'entreprise encourage particulièrement l'usage de véhicules électriques ou hybrides pour proposer des
+            trajets à faible impact écologique.
+            L'objectif d'EcoRide est double :
+          </p>
+          <ul>
+            <li>
+              💚 Contribuer à la transition écologique en limitant le nombre de véhicules individuels sur les routes ;
+            </li>
+            <li>
+              🤝 Créer du lien social entre les covoitureurs, en favorisant une communauté bienveillante et fiable.
+            </li>
+          </ul>
+          <p>
+            Aujourd'hui, EcoRide s'adresse aussi bien aux particuliers, qu'aux salariés d'entreprise ou aux
+            collectivités, avec des services adaptés aux besoins de chacun.
+          </p>
+      </section>
+    </main>
+    <footer>
+      <a href="#">Mentions légales</a>
+      <span>2025 EcoRide. Tous droits réservés</span>
+      <a href="../FastRide/contact.html">Contactez nous</a>
+    </footer>
+    <div class="side-menu" id="sideMenu">
+      <span class="close-btn" onclick="toggleMenu()">←</span>
+      <ul>
+        <li><a href="../FastRide/covoiturages.html">Accès aux covoiturages</a></li>
+        <li><a href="../FastRide/login.html">Connexion</a></li>
+        <li><a href="../FastRide/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="../FastRide/assets/js/main.js"></script>
+  <script src="../FastRide/assets/js/carousel.js"></script>
+
+</body>
+
+</html>

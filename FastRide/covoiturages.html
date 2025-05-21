@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="../FastRide/assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
@@ -19,7 +21,7 @@
         <img src="../FastRide/assets/img/LOGO.png" alt="EcoRide logo" class="logo" />
       </a>
       <div class="search-bar">
-        <input type="text" placeholder="trouvez votre covoiturage" />
+        <a href="../FastRide/covoiturages.html"><input type="text" placeholder="trouvez votre covoiturage" /></a>
         <span class="search-icon">🔍</span>
       </div>
       <div class="menu" onclick="toggleMenu()">
@@ -35,30 +37,30 @@
           <input type="date" id="ride-date" required />
           <button type="submit">Rechercher</button>
         </form>
-      <input type="checkbox" id="toggle-filters" hidden>
-      <label for="toggle-filters" class="filter-button">Afficher les filtres</label>
-      <section class="filters">
-        <h3>Filtres</h3>
-        <form id="filtersForm">
-          <label>
-            <input type="checkbox" id="ecologique" />
-            Voyage écologique uniquement
-          </label>
-          <label>
-            Prix max (€):
-            <input type="number" id="prixMax" min="0" />
-          </label>
-          <label>
-            Durée max (min):
-            <input type="number" id="dureeMax" min="1" />
-          </label>
-          <label>
-            Note min (sur 5):
-            <input type="number" id="noteMin" min="1" max="5" step="0.1" />
-          </label>
-          <button type="button" onclick="appliquerFiltres()">Appliquer</button>
-        </form>
-      </section>
+        <input type="checkbox" id="toggle-filters" hidden>
+        <label for="toggle-filters" class="filter-button">Afficher les filtres</label>
+        <section class="filters">
+          <h3>Filtres</h3>
+          <form id="filtersForm">
+            <label>
+              <input type="checkbox" id="ecologique" />
+              Voyage écologique uniquement
+            </label>
+            <label>
+              Prix max (€):
+              <input type="number" id="prixMax" min="0" />
+            </label>
+            <label>
+              Durée max (min):
+              <input type="number" id="dureeMax" min="1" />
+            </label>
+            <label>
+              Note min (sur 5):
+              <input type="number" id="noteMin" min="1" max="5" step="1" />
+            </label>
+            <button type="button" onclick="appliquerFiltres()">Appliquer</button>
+          </form>
+        </section>
       </section>
 
       <section id="results" class="ride-results">
@@ -81,70 +83,7 @@
       </ul>
     </div>
   </div>
-
   <script src="../FastRide/assets/js/main.js"></script>
-  <script>
-    const form = document.getElementById('ride-search');
-    const resultsSection = document.getElementById('results');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const start = document.getElementById('start-city').value.trim();
-      const end = document.getElementById('end-city').value.trim();
-      const date = document.getElementById('ride-date').value;
-
-      // Simuler des résultats (à remplacer par un appel au serveur plus tard)
-      const mockRides = [
-        {
-          driver: 'JeanD',
-          photo: '../FastRide/assets/img/drivers/portrait_0_0.png',
-          rating: 4.8,
-          seats: 2,
-          price: '12€',
-          departure: '08:00',
-          arrival: '09:30',
-          date: date,
-          eco: true
-        },
-        {
-          driver: 'MarcusT',
-          photo: '../FastRide/assets/img/drivers/portrait_0_1.png',
-          rating: 4.5,
-          seats: 1,
-          price: '10€',
-          departure: '10:00',
-          arrival: '11:20',
-          date: date,
-          eco: false
-        }
-      ];
-
-      resultsSection.innerHTML = '';
-
-      const available = mockRides.filter(ride => ride.seats > 0);
-
-      if (available.length > 0) {
-        available.forEach(ride => {
-          const rideCard = document.createElement('div');
-          rideCard.className = 'ride-card';
-          rideCard.innerHTML = `
-            <img src="${ride.photo}" alt="${ride.driver}" class="driver-photo" />
-            <h3>${ride.driver} (${ride.rating}★)</h3>
-            <p>Places restantes : ${ride.seats}</p>
-            <p>Prix : ${ride.price}</p>
-            <p>Départ : ${ride.date} à ${ride.departure}</p>
-            <p>Arrivée : ${ride.arrival}</p>
-            <p>${ride.eco ? '🚗 Voyage écologique' : ''}</p>
-            <button>Voir le détail</button>
-          `;
-          resultsSection.appendChild(rideCard);
-        });
-      } else {
-        resultsSection.innerHTML = `<p>Aucun itinéraire trouvé. Essayez une autre date.</p>`;
-      }
-    });
-  </script>
 </body>
 
 </html>
