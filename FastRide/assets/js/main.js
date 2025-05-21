@@ -156,3 +156,49 @@ if (form && resultsSection) {
     }
   });
 }
+
+//* Ride Creation */
+document.getElementById('user-role').addEventListener('change', function () {
+  const role = this.value;
+  const chauffeurInfo = document.getElementById('chauffeur-info');
+  chauffeurInfo.style.display = (role === 'chauffeur' || role === 'both') ? 'block' : 'none';
+});
+
+document.getElementById('save-role').addEventListener('click', function () {
+  const role = document.getElementById('user-role').value;
+
+  if (role === 'chauffeur' || role === 'both') {
+    const vehiculeData = {
+      plaque: document.getElementById('plaque').value,
+      dateImmat: document.getElementById('date-immat').value,
+      modele: document.getElementById('modele').value,
+      couleur: document.getElementById('couleur').value,
+      marque: document.getElementById('marque').value,
+      places: document.getElementById('places').value,
+      fumeur: document.getElementById('fumeur').checked,
+      animaux: document.getElementById('animaux').checked,
+      autres: document.getElementById('autres-preferences').value
+    };
+
+    alert("Infos chauffeur:", vehiculeData);
+    alert("Rôle enregistré comme chauffeur !");
+  } else {
+    alert("Rôle enregistré comme passager !");
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const userRoleSelect = document.getElementById('user-role');
+  const saisieVoyageDiv = document.getElementById('saisie-voyage');
+
+  if (userRoleSelect && saisieVoyageDiv) {
+    userRoleSelect.addEventListener('change', function () {
+      if (userRoleSelect.value === 'chauffeur' || userRoleSelect.value === 'both') {
+        saisieVoyageDiv.style.display = 'block';
+      } else {
+        saisieVoyageDiv.style.display = 'none';
+      }
+    });
+  }
+});
+
