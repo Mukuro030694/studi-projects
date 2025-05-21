@@ -7,7 +7,7 @@ function toggleMenu() {
 //* Login Form */
 const loginForm = document.getElementById('login-form');
 if (loginForm) {
-  loginForm.addEventListener('submit', function(event) {
+  loginForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
     const email = document.getElementById('email').value.trim();
@@ -45,9 +45,9 @@ if (loginForm) {
 }
 
 //create a new account
-const registerForm = document.getElementById('register-form');
+const registerForm = document.getElementById('reg-form');
 if (registerForm) {
-  registerForm.addEventListener('submit', function(event) {
+  registerForm.addEventListener('submit', function (event) {
     event.preventDefault();
 
     const email = document.getElementById('new-email').value.trim();
@@ -141,8 +141,15 @@ if (form && resultsSection) {
           <p>Arrivée : ${ride.arrival}</p>
           <p>${ride.eco ? '🚗 Voyage écologique' : ''}</p>
           <button>Voir le détail</button>
+          <button class="reserve-btn">Participer</button>
         `;
         resultsSection.appendChild(rideCard);
+      });
+      const reserveBtns = document.querySelectorAll('.reserve-btn');
+      reserveBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+          window.location.href = 'login.html';
+        });
       });
     } else {
       resultsSection.innerHTML = `<p>Aucun itinéraire trouvé. Essayez une autre date.</p>`;
