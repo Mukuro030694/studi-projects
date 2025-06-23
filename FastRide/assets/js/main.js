@@ -1,53 +1,42 @@
-// Toggle the side menu
+// Toggle side menu
 function toggleMenu() {
   const menu = document.getElementById("sideMenu");
   menu.classList.toggle("active");
 }
 
-//* Login Form */
+// Login Form
 const loginForm = document.getElementById('login-form');
 if (loginForm) {
-  loginForm.addEventListener('submit', function (event) {
+  loginForm.addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
     const userType = document.getElementById('userType').value;
 
-    //fake users
-    const fakeUsers = [
-      { email: 'admin@eco.com', password: 'admin123', type: 'admin' },
-      { email: 'employe@eco.com', password: 'emp123', type: 'employee' },
-      { email: 'client@eco.com', password: 'user123', type: 'user' }
-    ];
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password, type: userType })
+    });
 
-    const found = fakeUsers.find(u => u.email === email && u.password === password && u.type === userType);
+    const result = await res.json();
+    if (res.ok) {
+      localStorage.setItem('token', result.token || 'fake-jwt-token');
+      localStorage.setItem('userType', result.userType);
+      localStorage.setItem('userName', result.userName);
 
-    if (found) {
-      localStorage.setItem('token', 'fake-jwt-token');
-      localStorage.setItem('userType', userType);
-
-      switch (userType) {
-        case 'admin':
-          window.location.href = 'dashboard-admin.html';
-          break;
-        case 'employee':
-          window.location.href = 'dashboard-employee.html';
-          break;
-        case 'user':
-          window.location.href = 'dashboard-user.html';
-          break;
-      }
+      window.location.href = `dashboard-${userType}.html`;
     } else {
-      alert('Email, mot de passe ou type incorrect');
+      alert(result.error || 'Email, mot de passe ou type incorrect');
     }
   });
 }
 
-//create a new account
+// Register Form
 const registerForm = document.getElementById('reg-form');
 if (registerForm) {
-  registerForm.addEventListener('submit', function (event) {
+  registerForm.addEventListener('submit', async function (event) {
     event.preventDefault();
 
     const email = document.getElementById('new-email').value.trim();
@@ -61,82 +50,48 @@ if (registerForm) {
       return;
     }
 
-    // Simulate a user registration
-    const newUser = {
-      email,
-      password,
-      name,
-      type: userType
-    };
+    const res = await fetch('/api/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password, name, type: userType })
+    });
 
-    // Save "token" and type
-    localStorage.setItem('token', 'fake-jwt-token');
-    localStorage.setItem('userType', userType);
-    localStorage.setItem('userName', name);
+    const result = await res.json();
+    if (res.ok) {
+      localStorage.setItem('token', 'fake-jwt-token');
+      localStorage.setItem('userType', userType);
+      localStorage.setItem('userName', name);
 
-    switch (userType) {
-      case 'admin':
-        window.location.href = 'dashboard-admin.html';
-        break;
-      case 'employee':
-        window.location.href = 'dashboard-employee.html';
-        break;
-      case 'user':
-        window.location.href = 'dashboard-user.html';
-        break;
+      window.location.href = `dashboard-${userType}.html`;
+    } else {
+      alert(result.error || 'Erreur lors de l\'inscription');
     }
   });
 }
 
-//* Ride Search */
+// Ride Search
 const form = document.getElementById('ride-search');
 const resultsSection = document.getElementById('results');
 if (form && resultsSection) {
-  form.addEventListener('submit', function (e) {
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    const start = document.getElementById('start-city').value.trim();
-    const end = document.getElementById('end-city').value.trim();
-    const date = document.getElementById('ride-date').value;
+    resultsSection.innerHTML = '<p>Chargement...</p>';
 
-    const mockRides = [
-      {
-        driver: 'JeanD',
-        photo: '../FastRide/assets/img/drivers/portrait_0_0.png',
-        rating: 4.8,
-        seats: 2,
-        price: '12€',
-        departure: '08:00',
-        arrival: '09:30',
-        date: date,
-        eco: true
-      },
-      {
-        driver: 'MarcusT',
-        photo: '../FastRide/assets/img/drivers/portrait_0_1.png',
-        rating: 4.5,
-        seats: 1,
-        price: '10€',
-        departure: '10:00',
-        arrival: '11:20',
-        date: date,
-        eco: false
-      }
-    ];
+    const res = await fetch('/api/rides');
+    const rides = await res.json();
 
+    const available = rides.filter(ride => ride.seats > 0);
     resultsSection.innerHTML = '';
-
-    const available = mockRides.filter(ride => ride.seats > 0);
 
     if (available.length > 0) {
       available.forEach(ride => {
         const rideCard = document.createElement('div');
         rideCard.className = 'ride-card';
         rideCard.innerHTML = `
-          <img src="${ride.photo}" alt="${ride.driver}" class="driver-photo" />
-          <h3>${ride.driver} (${ride.rating}★)</h3>
+          <h3>${ride.driver}</h3>
           <p>Places restantes : ${ride.seats}</p>
-          <p>Prix : ${ride.price}</p>
+          <p>Prix : ${ride.price}€</p>
           <p>Départ : ${ride.date} à ${ride.departure}</p>
           <p>Arrivée : ${ride.arrival}</p>
           <p>${ride.eco ? '🚗 Voyage écologique' : ''}</p>
@@ -145,26 +100,25 @@ if (form && resultsSection) {
         `;
         resultsSection.appendChild(rideCard);
       });
-      const reserveBtns = document.querySelectorAll('.reserve-btn');
-      reserveBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-          window.location.href = 'login.html';
-        });
-      });
     } else {
-      resultsSection.innerHTML = `<p>Aucun itinéraire trouvé. Essayez une autre date.</p>`;
+      resultsSection.innerHTML = `<p>Aucun itinéraire trouvé.</p>`;
     }
   });
 }
 
-//* Ride Creation */
-document.getElementById('user-role').addEventListener('change', function () {
+// Ride Creation + Chauffeur preferences
+document.getElementById('user-role')?.addEventListener('change', function () {
   const role = this.value;
   const chauffeurInfo = document.getElementById('chauffeur-info');
   chauffeurInfo.style.display = (role === 'chauffeur' || role === 'both') ? 'block' : 'none';
+
+  const saisieVoyageDiv = document.getElementById('saisie-voyage');
+  if (saisieVoyageDiv) {
+    saisieVoyageDiv.style.display = (role === 'chauffeur' || role === 'both') ? 'block' : 'none';
+  }
 });
 
-document.getElementById('save-role').addEventListener('click', function () {
+document.getElementById('save-role')?.addEventListener('click', async function () {
   const role = document.getElementById('user-role').value;
 
   if (role === 'chauffeur' || role === 'both') {
@@ -174,31 +128,14 @@ document.getElementById('save-role').addEventListener('click', function () {
       modele: document.getElementById('modele').value,
       couleur: document.getElementById('couleur').value,
       marque: document.getElementById('marque').value,
-      places: document.getElementById('places').value,
+      places: parseInt(document.getElementById('places').value),
       fumeur: document.getElementById('fumeur').checked,
       animaux: document.getElementById('animaux').checked,
       autres: document.getElementById('autres-preferences').value
     };
 
-    alert("Infos chauffeur:", vehiculeData);
-    alert("Rôle enregistré comme chauffeur !");
+    alert("Infos chauffeur enregistrées !");
   } else {
     alert("Rôle enregistré comme passager !");
   }
 });
-
-document.addEventListener('DOMContentLoaded', function () {
-  const userRoleSelect = document.getElementById('user-role');
-  const saisieVoyageDiv = document.getElementById('saisie-voyage');
-
-  if (userRoleSelect && saisieVoyageDiv) {
-    userRoleSelect.addEventListener('change', function () {
-      if (userRoleSelect.value === 'chauffeur' || userRoleSelect.value === 'both') {
-        saisieVoyageDiv.style.display = 'block';
-      } else {
-        saisieVoyageDiv.style.display = 'none';
-      }
-    });
-  }
-});
-

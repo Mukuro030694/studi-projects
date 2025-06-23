@@ -1,0 +1,11 @@
+{
+    "require": {
+        "doctrine/orm": "^3.4",
+        "symfony/orm-pack": "^2.4",
+        "doctrine/doctrine-bundle": "^2.15",
+        "doctrine/doctrine-migrations-bundle": "^3.4",
+        "doctrine/dbal": "^4.2",
+        "symfony/maker-bundle": "^1.63",
+        "twig/twig": "^3.21"
+    }
+}
