@@ -106,6 +106,7 @@ if (form && resultsSection) {
   });
 }
 
+
 // Ride creation
 document.getElementById('user-role')?.addEventListener('change', function () {
   const role = this.value;
@@ -119,6 +120,7 @@ document.getElementById('user-role')?.addEventListener('change', function () {
 });
 
 document.getElementById('save-role')?.addEventListener('click', async function () {
+
   const role = document.getElementById('user-role').value;
 
   if (role === 'chauffeur' || role === 'both') {
@@ -128,17 +130,22 @@ document.getElementById('save-role')?.addEventListener('click', async function (
       modele: document.getElementById('modele').value,
       couleur: document.getElementById('couleur').value,
       marque: document.getElementById('marque').value,
+
       places: parseInt(document.getElementById('places').value),
+
       fumeur: document.getElementById('fumeur').checked,
       animaux: document.getElementById('animaux').checked,
       autres: document.getElementById('autres-preferences').value
     };
 
     alert("Infos chauffeur enregistrées !");
+=======
+ 
   } else {
     alert("Rôle enregistré comme passager !");
   }
 });
+
 
 // Save car info
 async function saveCarInfo(vehiculeData) {
