@@ -12,21 +12,21 @@ if (loginForm) {
 
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
-    const userType = document.getElementById('userType').value;
+    const role = document.getElementById('userType').value;
 
     const res = await fetch('/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password, type: userType })
+      body: JSON.stringify({ email, password, type: role })
     });
 
     const result = await res.json();
     if (res.ok) {
       localStorage.setItem('token', result.token || 'fake-jwt-token');
-      localStorage.setItem('userType', result.userType);
+      localStorage.setItem('role', result.userType);
       localStorage.setItem('userName', result.userName);
 
-      window.location.href = `dashboard-${userType}.html`;
+      window.location.href = `dashboard-${role}.html`;
     } else {
       alert(result.error || 'Email, mot de passe ou type incorrect');
     }
@@ -42,8 +42,8 @@ if (registerForm) {
     const email = document.getElementById('new-email').value.trim();
     const password = document.getElementById('new-password').value.trim();
     const confirmPassword = document.getElementById('new-password-confirmation').value.trim();
-    const name = document.getElementById('new-name').value.trim();
-    const userType = document.getElementById('new-userType').value;
+    const userName = document.getElementById('new-name').value.trim();
+    const role = document.getElementById('new-role').value;
 
     if (password !== confirmPassword) {
       alert("Les mots de passe ne correspondent pas.");
@@ -53,16 +53,16 @@ if (registerForm) {
     const res = await fetch('/api/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password, name, type: userType })
+      body: JSON.stringify({ email, password, userName, role })
     });
 
     const result = await res.json();
     if (res.ok) {
       localStorage.setItem('token', 'fake-jwt-token');
-      localStorage.setItem('userType', userType);
-      localStorage.setItem('userName', name);
+      localStorage.setItem('role', role);
+      localStorage.setItem('userName', userName);
 
-      window.location.href = `dashboard-${userType}.html`;
+      window.location.href = `dashboard-${role}.html`;
     } else {
       alert(result.error || 'Erreur lors de l\'inscription');
     }
