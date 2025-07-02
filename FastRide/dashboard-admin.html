@@ -4,13 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EcoRide Covoiturage</title>
-  <link rel="stylesheet" href="../FastRide/assets/css/style.css" />
+  <title>Dashboard Admin | EcoRide</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -18,7 +19,7 @@
 
     <header class="navbar">
       <a href="index.html" class="logo-link">
-        <img src="../FastRide/assets/img/LOGO.png" alt="EcoRide logo" class="logo" />
+        <img src="assets/img/LOGO.png" alt="EcoRide logo" class="logo" />
       </a>
       <div class="search-bar">
         <input type="text" placeholder="trouvez votre covoiturage" />
@@ -32,37 +33,37 @@
     <main class="main-section">
       <section class="content">
         <div class="text-box">
-          <form class="login-form">
-            <h2>Vous êtes admin</h2>
-            <p>
-              Vous avez des questions, des suggestions ou des commentaires? N'hésitez pas à nous contacter, nous sommes
-              là pour vous aider!
-            </p>
-            <input class="subject" type="text" placeholder="Sujet" required />
-            <input class="message" type="text" placeholder="Message" required />
-            <button>Envoyer</button>
-            <p>Ou contactez-nous par mail à <a href="mailto:contact@ecoride.com">contact@ecoride.com</a></p>
-          </form>
+          <h2>Bienvenue, administrateur</h2>
+
+          <h3>Comptes utilisateurs</h3>
+          <div id="users-container" class="user-list">
+            <p>Chargement des comptes...</p>
+          </div>
+
+          <h3>Statistiques des trajets par jour</h3>
+          <canvas id="rides-chart" width="600" height="400"></canvas>
+        </div>
       </section>
     </main>
+
     <footer>
       <a href="#">Mentions légales</a>
       <span>2025 EcoRide. Tous droits réservés</span>
-      <a href="../FastRide/contact.html">Contactez nous</a>
+      <a href="contact.html">Contactez nous</a>
     </footer>
+
     <div class="side-menu" id="sideMenu">
       <span class="close-btn" onclick="toggleMenu()">←</span>
       <ul>
-        <li><a href="../FastRide/covoiturages.html">Accès aux covoiturages</a></li>
-        <li><a href="../FastRide/login.html">Connexion</a></li>
-        <li><a href="../FastRide/contact.html">Contact</a></li>
+        <li><a href="covoiturages.html">Accès aux covoiturages</a></li>
+        <li><a href="login.html">Connexion</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </div>
 
-  <script src="../FastRide/assets/js/main.js"></script>
-  <script src="../FastRide/assets/js/carousel.js"></script>
-
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/dashboard-admin.js"></script>
 </body>
 
 </html>
